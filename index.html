@@ -30,7 +30,7 @@
             background-color: #f5f5f5;
             color: var(--dark-color);
             line-height: 1.6;
-            padding: 20px;
+            padding: 10px;
         }
         
         .container {
@@ -40,50 +40,53 @@
         
         header {
             text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
             background-color: white;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         
         h1 {
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            font-size: 1.4rem;
         }
         
         .subtitle {
             color: var(--dark-color);
             font-weight: normal;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
         }
         
         .calendar-controls {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             background-color: white;
-            padding: 15px;
+            padding: 12px;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         
         .month-nav {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
         
         button {
             background-color: var(--secondary-color);
             color: white;
             border: none;
-            padding: 10px 15px;
+            padding: 8px 12px;
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
             transition: background-color 0.3s;
+            font-size: 0.85rem;
         }
         
         button:hover {
@@ -91,22 +94,25 @@
         }
         
         .current-month {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: bold;
             color: var(--primary-color);
+            text-align: center;
+            min-width: 160px;
         }
         
         .calendar-container {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
         
         .calendar {
             background-color: white;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 12px;
+            order: 1;
         }
         
         .calendar-header {
@@ -114,29 +120,30 @@
             grid-template-columns: repeat(7, 1fr);
             text-align: center;
             font-weight: bold;
-            margin-bottom: 10px;
-            padding: 10px 0;
+            margin-bottom: 8px;
+            padding: 8px 0;
             border-bottom: 1px solid #eee;
+            font-size: 0.8rem;
         }
         
         .calendar-days {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
+            gap: 4px;
         }
         
         .day {
             border: 1px solid #ddd;
             border-radius: 5px;
-            padding: 10px;
-            min-height: 120px;
+            padding: 6px;
+            min-height: 70px;
             cursor: pointer;
             transition: all 0.3s;
+            font-size: 0.75rem;
         }
         
         .day:hover {
             background-color: #f0f0f0;
-            transform: translateY(-2px);
         }
         
         .day.active {
@@ -146,17 +153,21 @@
         
         .day-number {
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
             display: block;
             text-align: right;
+            font-size: 0.8rem;
         }
         
         .event {
-            margin-bottom: 2px;
-            padding: 3px 5px;
-            border-radius: 3px;
-            font-size: 0.7rem;
+            margin-bottom: 1px;
+            padding: 2px 3px;
+            border-radius: 2px;
+            font-size: 0.6rem;
             cursor: pointer;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
         
         .breakfast {
@@ -191,23 +202,28 @@
         .details-panel {
             background-color: white;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 20px;
-            max-height: 800px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 15px;
+            max-height: 500px;
             overflow-y: auto;
+            order: 2;
         }
         
         .details-header {
             text-align: center;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
             border-bottom: 1px solid #eee;
             color: var(--primary-color);
         }
         
+        .details-header h2 {
+            font-size: 1.2rem;
+        }
+        
         .time-slot {
-            margin-bottom: 20px;
-            padding: 15px;
+            margin-bottom: 15px;
+            padding: 12px;
             border-radius: 8px;
             background-color: #f9f9f9;
         }
@@ -216,49 +232,54 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         
         .time {
             font-weight: bold;
             color: var(--primary-color);
+            font-size: 0.9rem;
         }
         
         .meal-type {
             padding: 3px 8px;
             border-radius: 15px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: white;
         }
         
         .meal-title {
             font-weight: bold;
             margin-bottom: 5px;
+            font-size: 0.9rem;
         }
         
         .meal-description {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
         }
         
         .legend {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 8px;
+            margin-top: 15px;
             justify-content: center;
+            order: 3;
         }
         
         .legend-item {
             display: flex;
             align-items: center;
-            margin-right: 15px;
+            margin-right: 10px;
+            font-size: 0.8rem;
         }
         
         .legend-color {
-            width: 15px;
-            height: 15px;
-            margin-right: 5px;
-            border-radius: 3px;
+            width: 12px;
+            height: 12px;
+            margin-right: 4px;
+            border-radius: 2px;
         }
         
         .empty-day {
@@ -266,22 +287,149 @@
             border: 1px dashed #ddd;
         }
         
-        @media (max-width: 768px) {
-            .calendar-container {
-                grid-template-columns: 1fr;
+        .mobile-tabs {
+            display: none;
+        }
+        
+        /* Estilos para tablets y escritorio */
+        @media (min-width: 768px) {
+            body {
+                padding: 20px;
             }
             
-            .calendar-days {
-                grid-template-columns: repeat(7, 1fr);
+            header {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+            
+            .calendar-controls {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            
+            button {
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+            
+            .current-month {
+                font-size: 1.5rem;
+                min-width: 200px;
+            }
+            
+            .calendar-container {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 20px;
+            }
+            
+            .calendar {
+                padding: 15px;
+                order: unset;
+            }
+            
+            .calendar-header {
+                padding: 10px 0;
+                margin-bottom: 10px;
+                font-size: 0.9rem;
             }
             
             .day {
-                min-height: 80px;
-                padding: 5px;
+                padding: 10px;
+                min-height: 100px;
+                font-size: 0.8rem;
+            }
+            
+            .day-number {
+                font-size: 0.9rem;
             }
             
             .event {
-                font-size: 0.6rem;
+                padding: 3px 5px;
+                font-size: 0.7rem;
+            }
+            
+            .details-panel {
+                padding: 20px;
+                max-height: 700px;
+                order: unset;
+            }
+            
+            .details-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .time-slot {
+                margin-bottom: 20px;
+                padding: 15px;
+            }
+            
+            .time {
+                font-size: 1rem;
+            }
+            
+            .meal-type {
+                font-size: 0.8rem;
+            }
+            
+            .meal-title {
+                font-size: 1rem;
+            }
+            
+            .meal-description {
+                font-size: 0.9rem;
+            }
+            
+            .legend {
+                margin-top: 20px;
+                gap: 10px;
+            }
+            
+            .legend-item {
+                font-size: 0.9rem;
+            }
+            
+            .legend-color {
+                width: 15px;
+                height: 15px;
+                margin-right: 5px;
+            }
+        }
+        
+        /* Estilos específicos para móviles muy pequeños */
+        @media (max-width: 360px) {
+            .calendar-header {
+                font-size: 0.7rem;
+            }
+            
+            .day {
+                min-height: 60px;
+                padding: 4px;
+            }
+            
+            .event {
+                font-size: 0.55rem;
+                padding: 1px 2px;
+            }
+            
+            .current-month {
+                font-size: 1rem;
+                min-width: 130px;
+            }
+            
+            button {
+                padding: 6px 8px;
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -295,9 +443,9 @@
         
         <div class="calendar-controls">
             <div class="month-nav">
-                <button id="prev-month">← Mes Anterior</button>
+                <button id="prev-month">← Anterior</button>
                 <div class="current-month" id="current-month">Mes Actual</div>
-                <button id="next-month">Mes Siguiente →</button>
+                <button id="next-month">Siguiente →</button>
             </div>
             <button id="today-btn">Hoy</button>
         </div>
@@ -362,147 +510,147 @@
             breakfast: [
                 {
                     title: "Batido Verde Energético",
-                    description: "Batido de espinacas, 1/2 plátano, 1 cucharada de proteína en polvo, 1 cucharadita de semillas de chía y 200ml de leche de almendras."
+                    description: "Batido de espinacas, 1/2 plátano, proteína en polvo, semillas de chía y leche de almendras."
                 },
                 {
                     title: "Avena con Frutos Rojos",
-                    description: "1/2 taza de avena cocida con agua, 1/2 taza de frutos rojos frescos o congelados, 1 cucharadita de miel y 5 almendras fileteadas."
+                    description: "Avena cocida con frutos rojos, miel y almendras fileteadas."
                 },
                 {
                     title: "Tostadas de Aguacate",
-                    description: "2 rebanadas de pan integral tostado, 1/4 de aguacate machacado, 1 huevo duro en rodajas, sal y pimienta al gusto."
+                    description: "Pan integral tostado con aguacate y huevo duro en rodajas."
                 },
                 {
                     title: "Yogur con Granola Casera",
-                    description: "1 taza de yogur griego natural, 3 cucharadas de granola casera sin azúcar, 1/2 taza de frutas frescas picadas (manzana, pera)."
+                    description: "Yogur griego natural con granola sin azúcar y frutas frescas."
                 },
                 {
                     title: "Revuelto de Verduras",
-                    description: "2 huevos revueltos con espinacas, champiñones y cebolla. Acompañado de 1 rebanada de pan integral."
+                    description: "Huevos revueltos con espinacas, champiñones y cebolla."
                 },
                 {
                     title: "Pudín de Chía",
-                    description: "Pudín de chía preparado con 3 cucharadas de semillas de chía, 200ml de leche de almendras y endulzado con stevia. Decorado con frutos rojos."
+                    description: "Pudín de chía con leche de almendras y frutos rojos."
                 }
             ],
             lunch: [
                 {
                     title: "Ensalada de Quinoa y Pollo",
-                    description: "Ensalada de quinoa con pechuga de pollo a la plancha, tomate cherry, pepino, pimiento rojo y aderezo de yogur natural con hierbas."
+                    description: "Quinoa con pollo a la plancha, tomate, pepino y aderezo de yogur."
                 },
                 {
                     title: "Salmón al Horno con Verduras",
-                    description: "Filete de salmón al horno con limón y eneldo. Acompañado de brócoli al vapor y 1/2 batata asada."
+                    description: "Salmón al horno con brócoli al vapor y batata asada."
                 },
                 {
                     title: "Wrap de Pavo y Aguacate",
-                    description: "Tortilla integral con pechuga de pavo, aguacate, lechuga, tomate y una cucharadita de mostaza."
+                    description: "Tortilla integral con pavo, aguacate, lechuga y tomate."
                 },
                 {
                     title: "Bowl de Lentejas y Verduras",
-                    description: "Bowl con lentejas cocidas, zanahoria rallada, espinacas frescas, 1/4 de aguacate y semillas de girasol."
+                    description: "Lentejas con zanahoria, espinacas, aguacate y semillas."
                 },
                 {
                     title: "Pescado a la Plancha con Ensalada",
-                    description: "Filete de merluza o lubina a la plancha con ajo y perejil. Ensalada mixta con lechuga, rábanos, zanahoria y vinagreta ligera."
+                    description: "Merluza a la plancha con ensalada mixta y vinagreta ligera."
                 },
                 {
                     title: "Ensalada César Saludable",
-                    description: "Ensalada de lechuga romana, pollo a la plancha, crutones de pan integral, aderezo César light casero y queso parmesano rallado."
+                    description: "Lechuga romana con pollo, crutones integrales y aderezo light."
                 },
                 {
                     title: "Guiso de Lentejas Ligero",
-                    description: "Guiso de lentejas con verduras (cebolla, zanahoria, pimiento), especias y un trozo pequeño de carne magra. Sin embutidos."
+                    description: "Lentejas con verduras y carne magra. Sin embutidos."
                 },
                 {
                     title: "Tacos de Vegetales",
-                    description: "2 tortillas de maíz con frijoles negros, pimiento salteado, cebolla morada, maíz y guacamole light."
+                    description: "Tortillas de maíz con frijoles, pimiento, cebolla y guacamole."
                 },
                 {
                     title: "Pechuga de Pollo Rellena",
-                    description: "Pechuga de pollo rellena de espinacas y queso feta light, horneada con tomates cherry y calabacín."
+                    description: "Pollo relleno de espinacas y queso feta, horneado con verduras."
                 },
                 {
                     title: "Berenjenas Rellenas",
-                    description: "Berenjenas horneadas rellenas de carne picada magra, cebolla, ajo y tomate natural, gratinadas con un poco de queso mozzarella light."
+                    description: "Berenjenas horneadas rellenas de carne magra y tomate."
                 }
             ],
             snack: [
                 {
                     title: "Yogur con Frutos Secos",
-                    description: "1 yogur griego natural sin azúcar con un puñado de frutos rojos y 10 almendras."
+                    description: "Yogur griego con frutos rojos y almendras."
                 },
                 {
                     title: "Manzana con Mantequilla de Cacahuete",
-                    description: "1 manzana cortada en rodajas con 1 cucharadita de mantequilla de cacahuete natural."
+                    description: "Manzana con mantequilla de cacahuete natural."
                 },
                 {
                     title: "Batido de Proteína",
-                    description: "Batido de proteína en polvo con agua o leche de almendras y 1/2 plátano."
+                    description: "Batido de proteína con leche de almendras y plátano."
                 },
                 {
                     title: "Huevo Duro con Aguacate",
-                    description: "1 huevo duro con 1/4 de aguacate y una pizca de sal marina."
+                    description: "Huevo duro con aguacate y sal marina."
                 },
                 {
                     title: "Bastones de Verduras con Hummus",
-                    description: "Bastones de zanahoria, pepino y apio con 2 cucharadas de hummus casero."
+                    description: "Zanahoria, pepino y apio con hummus casero."
                 },
                 {
                     title: "Puñado de Frutos Secos",
-                    description: "Mezcla de 10 almendras, 5 nueces y 1 cucharada de pasas."
+                    description: "Almendras, nueces y pasas."
                 }
             ],
             dinner: [
                 {
                     title: "Crema de Verduras",
-                    description: "Crema de calabacín y brócoli con un toque de jengibre. Acompañada de 1 rebanada de pan integral."
+                    description: "Crema de calabacín y brócoli con jengibre."
                 },
                 {
                     title: "Tortilla de Espinacas",
-                    description: "Tortilla de 2 claras y 1 yema con espinacas frescas y champiñones. Ensalada verde de acompañamiento."
+                    description: "Tortilla de claras con espinacas y champiñones."
                 },
                 {
                     title: "Pescado al Vapor con Espárragos",
-                    description: "Filete de pescado blanco al vapor con limón y hierbas. Espárragos trigueros salteados con ajo."
+                    description: "Pescado al vapor con espárragos salteados con ajo."
                 },
                 {
                     title: "Ensalada de Garbanzos",
-                    description: "Ensalada de garbanzos con atún al natural, pimiento, cebolla morada y vinagreta de mostaza."
+                    description: "Garbanzos con atún, pimiento y cebolla morada."
                 },
                 {
                     title: "Calabacín Relleno",
-                    description: "Calabacín horneado relleno de quinoa, champiñones y cebolla, gratinado con un poco de queso parmesano."
+                    description: "Calabacín horneado relleno de quinoa y champiñones."
                 },
                 {
                     title: "Sopa de Pollo y Verduras",
-                    description: "Sopa casera de pollo con zanahoria, apio, calabacín y cebolla. Baja en sal."
+                    description: "Sopa casera de pollo con verduras. Baja en sal."
                 }
             ],
             water: {
                 title: "Hidratación",
-                description: "Recuerda beber 2 vasos de agua. Puedes añadir una rodaja de limón, pepino o hierbas frescas para dar sabor."
+                description: "2 vasos de agua. Añade limón, pepino o hierbas para sabor."
             },
             exercise: [
                 {
                     title: "Cardio Moderado",
-                    description: "30-40 minutos de caminata rápida, bicicleta estática o elíptica a intensidad moderada."
+                    description: "30-40 min de caminata, bicicleta o elíptica."
                 },
                 {
                     title: "Entrenamiento de Fuerza",
-                    description: "20-30 minutos de ejercicios con peso corporal o pesas ligeras: sentadillas, flexiones, planchas, etc."
+                    description: "20-30 min de ejercicios con peso corporal o pesas."
                 },
                 {
                     title: "Yoga o Estiramientos",
-                    description: "30 minutos de yoga suave o rutina de estiramientos para mejorar flexibilidad y reducir estrés."
+                    description: "30 min de yoga suave o rutina de estiramientos."
                 },
                 {
                     title: "Entrenamiento HIIT",
-                    description: "15-20 minutos de entrenamiento por intervalos de alta intensidad: burpees, saltos, mountain climbers."
+                    description: "15-20 min de entrenamiento por intervalos."
                 },
                 {
                     title: "Natación",
-                    description: "30 minutos de natación a ritmo moderado. Excelente ejercicio de bajo impacto."
+                    description: "30 min de natación a ritmo moderado."
                 }
             ]
         };
@@ -611,6 +759,14 @@
                     // Actualizar la fecha seleccionada
                     selectedDate = new Date(date.getFullYear(), date.getMonth(), day);
                     updateDetailsPanel(selectedDate);
+                    
+                    // En móviles, desplazar hacia el panel de detalles
+                    if (window.innerWidth < 768) {
+                        document.querySelector('.details-panel').scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 });
                 
                 calendarDays.appendChild(dayElement);
@@ -620,15 +776,15 @@
         function addEventsToDay(dayElement, day) {
             // Solo añadir algunos eventos para no saturar la vista
             const eventsToShow = [
-                { time: "07:00", type: "breakfast", text: "Desayuno" },
-                { time: "13:00", type: "lunch", text: "Almuerzo" },
-                { time: "16:30", type: "snack", text: "Merienda" },
+                { time: "07:00", type: "breakfast", text: "Des" },
+                { time: "13:00", type: "lunch", text: "Alm" },
+                { time: "16:30", type: "snack", text: "Mer" },
                 { time: "20:30", type: "dinner", text: "Cena" }
             ];
             
             // Variar ligeramente los eventos según el día para hacerlo más interesante
             if (day % 3 === 0) {
-                eventsToShow.push({ time: "12:00", type: "exercise", text: "Ejercicio" });
+                eventsToShow.push({ time: "12:00", type: "exercise", text: "Ejerc" });
             }
             
             eventsToShow.forEach(event => {
@@ -651,7 +807,6 @@
             timeSlots.innerHTML = '';
             
             // Calcular índices para seleccionar comidas basadas en la fecha
-            // Esto asegura variedad día a día
             const dayOfMonth = date.getDate();
             const month = date.getMonth();
             
@@ -700,37 +855,37 @@
 
         function getDailyTip(day) {
             const tips = [
-                "Bebe un vaso de agua tibia con limón en ayunas para activar tu metabolismo.",
-                "Mastica bien cada bocado y come sin prisa para mejorar la digestión.",
-                "Incluye una porción de proteína en cada comida para mantener la saciedad.",
-                "Prefiere las cocciones al vapor, horno o plancha en lugar de frituras.",
-                "Realiza 30 minutos de actividad física aunque sea una caminata rápida.",
-                "Evita los alimentos procesados y azúcares refinados.",
-                "Incluye verduras de hoja verde en al menos una comida del día.",
-                "Toma infusiones de jengibre o té verde para acelerar el metabolismo.",
-                "Planifica tus comidas con anticipación para evitar tentaciones.",
-                "Duerme al menos 7-8 horas para regular las hormonas del apetito.",
-                "Consume grasas saludables como aguacate, frutos secos y aceite de oliva.",
-                "Incluye fibra en tu dieta para mejorar la digestión y saciedad.",
-                "Reduce el consumo de sal para evitar retención de líquidos.",
-                "Come cada 3-4 horas para mantener estable tu nivel de azúcar en sangre.",
-                "Realiza ejercicios de fuerza al menos 2 veces por semana.",
-                "Toma 2 litros de agua al día para mantenerte hidratado.",
-                "Incluye probióticos como yogur natural para mejorar tu flora intestinal.",
-                "Evita comer frente al televisor o pantallas para ser consciente de lo que consumes.",
-                "Prefiere frutas enteras en lugar de jugos para aprovechar toda la fibra.",
-                "Controla las porciones usando platos más pequeños.",
-                "Incluye especias como cúrcuma, canela y pimienta para dar sabor sin calorías.",
-                "Realiza actividad física en ayunas para quemar más grasa.",
-                "Consume alimentos ricos en omega-3 como pescado azul o semillas de chía.",
-                "Evita los carbohidratos refinados como pan blanco y pasta.",
-                "Incluye legumbres 2-3 veces por semana como fuente de proteína vegetal.",
-                "Toma un puñado de frutos secos como snack saludable.",
-                "Realiza ejercicios de respiración profunda para controlar el estrés.",
-                "Consume alimentos ricos en vitamina C para mejorar la absorción de hierro.",
-                "Prefiere los edulcorantes naturales como stevia en lugar de azúcar.",
-                "Incluye alimentos fermentados como chucrut o kéfir para mejorar la digestión.",
-                "Realiza estiramientos diarios para mejorar la flexibilidad y circulación."
+                "Bebe agua con limón en ayunas para activar tu metabolismo.",
+                "Mastica bien cada bocado y come sin prisa.",
+                "Incluye proteína en cada comida para mantener la saciedad.",
+                "Prefiere cocciones al vapor, horno o plancha.",
+                "Realiza 30 minutos de actividad física diaria.",
+                "Evita alimentos procesados y azúcares refinados.",
+                "Incluye verduras de hoja verde en tus comidas.",
+                "Toma infusiones de jengibre o té verde.",
+                "Planifica tus comidas con anticipación.",
+                "Duerme al menos 7-8 horas cada noche.",
+                "Consume grasas saludables como aguacate y frutos secos.",
+                "Incluye fibra para mejorar digestión y saciedad.",
+                "Reduce el consumo de sal.",
+                "Come cada 3-4 horas.",
+                "Realiza ejercicios de fuerza 2 veces por semana.",
+                "Toma 2 litros de agua al día.",
+                "Incluye probióticos como yogur natural.",
+                "Evita comer frente al televisor.",
+                "Prefiere frutas enteras en lugar de jugos.",
+                "Controla porciones usando platos pequeños.",
+                "Incluye especias para dar sabor sin calorías.",
+                "Realiza actividad física en ayunas.",
+                "Consume alimentos ricos en omega-3.",
+                "Evita carbohidratos refinados.",
+                "Incluye legumbres 2-3 veces por semana.",
+                "Toma un puñado de frutos secos como snack.",
+                "Realiza ejercicios de respiración profunda.",
+                "Consume alimentos ricos en vitamina C.",
+                "Prefiere edulcorantes naturales como stevia.",
+                "Incluye alimentos fermentados.",
+                "Realiza estiramientos diarios."
             ];
             
             return tips[(day - 1) % tips.length];
@@ -738,3 +893,4 @@
     </script>
 </body>
 </html>
+
