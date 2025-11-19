@@ -193,6 +193,8 @@
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             padding: 20px;
+            max-height: 800px;
+            overflow-y: auto;
         }
         
         .details-header {
@@ -355,32 +357,154 @@
     </div>
 
     <script>
-        // Datos de ejemplo para las comidas
-        const mealData = {
-            breakfast: {
-                title: "Desayuno Energético",
-                description: "Batido de proteína con espinacas, 1/2 taza de avena, 1 cucharada de semillas de chía y 1 manzana."
-            },
-            lunch: {
-                title: "Almuerzo Balanceado",
-                description: "Ensalada de quinoa con pollo a la plancha, verduras mixtas (lechuga, zanahoria, pepino) y aderezo de yogur natural."
-            },
-            snack: {
-                title: "Merienda Saludable",
-                description: "1 yogur griego sin azúcar con un puñado de frutos rojos y 5 almendras."
-            },
-            dinner: {
-                title: "Cena Ligera",
-                description: "Salmón al horno con espárragos y brócoli al vapor. 1/2 batata cocida."
-            },
+        // Base de datos ampliada de comidas
+        const mealDatabase = {
+            breakfast: [
+                {
+                    title: "Batido Verde Energético",
+                    description: "Batido de espinacas, 1/2 plátano, 1 cucharada de proteína en polvo, 1 cucharadita de semillas de chía y 200ml de leche de almendras."
+                },
+                {
+                    title: "Avena con Frutos Rojos",
+                    description: "1/2 taza de avena cocida con agua, 1/2 taza de frutos rojos frescos o congelados, 1 cucharadita de miel y 5 almendras fileteadas."
+                },
+                {
+                    title: "Tostadas de Aguacate",
+                    description: "2 rebanadas de pan integral tostado, 1/4 de aguacate machacado, 1 huevo duro en rodajas, sal y pimienta al gusto."
+                },
+                {
+                    title: "Yogur con Granola Casera",
+                    description: "1 taza de yogur griego natural, 3 cucharadas de granola casera sin azúcar, 1/2 taza de frutas frescas picadas (manzana, pera)."
+                },
+                {
+                    title: "Revuelto de Verduras",
+                    description: "2 huevos revueltos con espinacas, champiñones y cebolla. Acompañado de 1 rebanada de pan integral."
+                },
+                {
+                    title: "Pudín de Chía",
+                    description: "Pudín de chía preparado con 3 cucharadas de semillas de chía, 200ml de leche de almendras y endulzado con stevia. Decorado con frutos rojos."
+                }
+            ],
+            lunch: [
+                {
+                    title: "Ensalada de Quinoa y Pollo",
+                    description: "Ensalada de quinoa con pechuga de pollo a la plancha, tomate cherry, pepino, pimiento rojo y aderezo de yogur natural con hierbas."
+                },
+                {
+                    title: "Salmón al Horno con Verduras",
+                    description: "Filete de salmón al horno con limón y eneldo. Acompañado de brócoli al vapor y 1/2 batata asada."
+                },
+                {
+                    title: "Wrap de Pavo y Aguacate",
+                    description: "Tortilla integral con pechuga de pavo, aguacate, lechuga, tomate y una cucharadita de mostaza."
+                },
+                {
+                    title: "Bowl de Lentejas y Verduras",
+                    description: "Bowl con lentejas cocidas, zanahoria rallada, espinacas frescas, 1/4 de aguacate y semillas de girasol."
+                },
+                {
+                    title: "Pescado a la Plancha con Ensalada",
+                    description: "Filete de merluza o lubina a la plancha con ajo y perejil. Ensalada mixta con lechuga, rábanos, zanahoria y vinagreta ligera."
+                },
+                {
+                    title: "Ensalada César Saludable",
+                    description: "Ensalada de lechuga romana, pollo a la plancha, crutones de pan integral, aderezo César light casero y queso parmesano rallado."
+                },
+                {
+                    title: "Guiso de Lentejas Ligero",
+                    description: "Guiso de lentejas con verduras (cebolla, zanahoria, pimiento), especias y un trozo pequeño de carne magra. Sin embutidos."
+                },
+                {
+                    title: "Tacos de Vegetales",
+                    description: "2 tortillas de maíz con frijoles negros, pimiento salteado, cebolla morada, maíz y guacamole light."
+                },
+                {
+                    title: "Pechuga de Pollo Rellena",
+                    description: "Pechuga de pollo rellena de espinacas y queso feta light, horneada con tomates cherry y calabacín."
+                },
+                {
+                    title: "Berenjenas Rellenas",
+                    description: "Berenjenas horneadas rellenas de carne picada magra, cebolla, ajo y tomate natural, gratinadas con un poco de queso mozzarella light."
+                }
+            ],
+            snack: [
+                {
+                    title: "Yogur con Frutos Secos",
+                    description: "1 yogur griego natural sin azúcar con un puñado de frutos rojos y 10 almendras."
+                },
+                {
+                    title: "Manzana con Mantequilla de Cacahuete",
+                    description: "1 manzana cortada en rodajas con 1 cucharadita de mantequilla de cacahuete natural."
+                },
+                {
+                    title: "Batido de Proteína",
+                    description: "Batido de proteína en polvo con agua o leche de almendras y 1/2 plátano."
+                },
+                {
+                    title: "Huevo Duro con Aguacate",
+                    description: "1 huevo duro con 1/4 de aguacate y una pizca de sal marina."
+                },
+                {
+                    title: "Bastones de Verduras con Hummus",
+                    description: "Bastones de zanahoria, pepino y apio con 2 cucharadas de hummus casero."
+                },
+                {
+                    title: "Puñado de Frutos Secos",
+                    description: "Mezcla de 10 almendras, 5 nueces y 1 cucharada de pasas."
+                }
+            ],
+            dinner: [
+                {
+                    title: "Crema de Verduras",
+                    description: "Crema de calabacín y brócoli con un toque de jengibre. Acompañada de 1 rebanada de pan integral."
+                },
+                {
+                    title: "Tortilla de Espinacas",
+                    description: "Tortilla de 2 claras y 1 yema con espinacas frescas y champiñones. Ensalada verde de acompañamiento."
+                },
+                {
+                    title: "Pescado al Vapor con Espárragos",
+                    description: "Filete de pescado blanco al vapor con limón y hierbas. Espárragos trigueros salteados con ajo."
+                },
+                {
+                    title: "Ensalada de Garbanzos",
+                    description: "Ensalada de garbanzos con atún al natural, pimiento, cebolla morada y vinagreta de mostaza."
+                },
+                {
+                    title: "Calabacín Relleno",
+                    description: "Calabacín horneado relleno de quinoa, champiñones y cebolla, gratinado con un poco de queso parmesano."
+                },
+                {
+                    title: "Sopa de Pollo y Verduras",
+                    description: "Sopa casera de pollo con zanahoria, apio, calabacín y cebolla. Baja en sal."
+                }
+            ],
             water: {
                 title: "Hidratación",
-                description: "Recuerda beber 2 vasos de agua. Puedes añadir una rodaja de limón o pepino para dar sabor."
+                description: "Recuerda beber 2 vasos de agua. Puedes añadir una rodaja de limón, pepino o hierbas frescas para dar sabor."
             },
-            exercise: {
-                title: "Actividad Física",
-                description: "30 minutos de caminata rápida o 20 minutos de entrenamiento de fuerza."
-            }
+            exercise: [
+                {
+                    title: "Cardio Moderado",
+                    description: "30-40 minutos de caminata rápida, bicicleta estática o elíptica a intensidad moderada."
+                },
+                {
+                    title: "Entrenamiento de Fuerza",
+                    description: "20-30 minutos de ejercicios con peso corporal o pesas ligeras: sentadillas, flexiones, planchas, etc."
+                },
+                {
+                    title: "Yoga o Estiramientos",
+                    description: "30 minutos de yoga suave o rutina de estiramientos para mejorar flexibilidad y reducir estrés."
+                },
+                {
+                    title: "Entrenamiento HIIT",
+                    description: "15-20 minutos de entrenamiento por intervalos de alta intensidad: burpees, saltos, mountain climbers."
+                },
+                {
+                    title: "Natación",
+                    description: "30 minutos de natación a ritmo moderado. Excelente ejercicio de bajo impacto."
+                }
+            ]
         };
 
         // Horarios fijos
@@ -526,12 +650,27 @@
             // Limpiar los slots de tiempo
             timeSlots.innerHTML = '';
             
+            // Calcular índices para seleccionar comidas basadas en la fecha
+            // Esto asegura variedad día a día
+            const dayOfMonth = date.getDate();
+            const month = date.getMonth();
+            
             // Añadir cada horario y comida
             schedule.forEach(slot => {
                 const timeSlotElement = document.createElement('div');
                 timeSlotElement.className = 'time-slot';
                 
-                const mealInfo = mealData[slot.type];
+                let mealInfo;
+                
+                // Seleccionar comida diferente según el día y tipo
+                if (slot.type === 'water') {
+                    mealInfo = mealDatabase.water;
+                } else {
+                    const mealArray = mealDatabase[slot.type];
+                    // Usar una combinación de día y mes para seleccionar comida
+                    const index = (dayOfMonth + month) % mealArray.length;
+                    mealInfo = mealArray[index];
+                }
                 
                 timeSlotElement.innerHTML = `
                     <div class="time-header">
@@ -544,6 +683,57 @@
                 
                 timeSlots.appendChild(timeSlotElement);
             });
+            
+            // Añadir recomendación diaria personalizada
+            const tipElement = document.createElement('div');
+            tipElement.className = 'time-slot';
+            tipElement.style.backgroundColor = '#E8F5E9';
+            tipElement.innerHTML = `
+                <div class="time-header">
+                    <div class="time">💡</div>
+                    <div class="meal-type" style="background-color: var(--accent-color)">Consejo del Día</div>
+                </div>
+                <div class="meal-description">${getDailyTip(dayOfMonth)}</div>
+            `;
+            timeSlots.appendChild(tipElement);
+        }
+
+        function getDailyTip(day) {
+            const tips = [
+                "Bebe un vaso de agua tibia con limón en ayunas para activar tu metabolismo.",
+                "Mastica bien cada bocado y come sin prisa para mejorar la digestión.",
+                "Incluye una porción de proteína en cada comida para mantener la saciedad.",
+                "Prefiere las cocciones al vapor, horno o plancha en lugar de frituras.",
+                "Realiza 30 minutos de actividad física aunque sea una caminata rápida.",
+                "Evita los alimentos procesados y azúcares refinados.",
+                "Incluye verduras de hoja verde en al menos una comida del día.",
+                "Toma infusiones de jengibre o té verde para acelerar el metabolismo.",
+                "Planifica tus comidas con anticipación para evitar tentaciones.",
+                "Duerme al menos 7-8 horas para regular las hormonas del apetito.",
+                "Consume grasas saludables como aguacate, frutos secos y aceite de oliva.",
+                "Incluye fibra en tu dieta para mejorar la digestión y saciedad.",
+                "Reduce el consumo de sal para evitar retención de líquidos.",
+                "Come cada 3-4 horas para mantener estable tu nivel de azúcar en sangre.",
+                "Realiza ejercicios de fuerza al menos 2 veces por semana.",
+                "Toma 2 litros de agua al día para mantenerte hidratado.",
+                "Incluye probióticos como yogur natural para mejorar tu flora intestinal.",
+                "Evita comer frente al televisor o pantallas para ser consciente de lo que consumes.",
+                "Prefiere frutas enteras en lugar de jugos para aprovechar toda la fibra.",
+                "Controla las porciones usando platos más pequeños.",
+                "Incluye especias como cúrcuma, canela y pimienta para dar sabor sin calorías.",
+                "Realiza actividad física en ayunas para quemar más grasa.",
+                "Consume alimentos ricos en omega-3 como pescado azul o semillas de chía.",
+                "Evita los carbohidratos refinados como pan blanco y pasta.",
+                "Incluye legumbres 2-3 veces por semana como fuente de proteína vegetal.",
+                "Toma un puñado de frutos secos como snack saludable.",
+                "Realiza ejercicios de respiración profunda para controlar el estrés.",
+                "Consume alimentos ricos en vitamina C para mejorar la absorción de hierro.",
+                "Prefiere los edulcorantes naturales como stevia en lugar de azúcar.",
+                "Incluye alimentos fermentados como chucrut o kéfir para mejorar la digestión.",
+                "Realiza estiramientos diarios para mejorar la flexibilidad y circulación."
+            ];
+            
+            return tips[(day - 1) % tips.length];
         }
     </script>
 </body>
